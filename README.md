@@ -6,5 +6,4 @@ Currently, a Python program that randomly generates a word between 4 and 7 chara
 ## To be implemented:
 - Integrate communication with Discord
 - Allow players to utilize custom wordbanks
-- Include colouring of letters of which one is correct and which one isn't
 - Fix Letterbank Layout
