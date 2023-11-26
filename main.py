@@ -13,9 +13,8 @@ while not(result) and count <= len(secret):
             count += 1
             result, guessRes = game.solve(secret, guess)
             letterBank = game.updateBank(guessRes, letterBank)
-            match = game.convertList([t[1] for t in guessRes])
-            print(f'\nLetters used:\n{letterBank}\n')
-            print(f'{[t[0] for t in guessRes]}\n{match}')
+            print(f'\nLetters used:\n{letterBank}')
+            game.colourLetter(guessRes)
         else:
             print("Word not in wordbank")
     else:
@@ -23,3 +22,4 @@ while not(result) and count <= len(secret):
 print(secret)
 print("You Win!" if count<=len(secret) else "You Lose!")
 input()
+

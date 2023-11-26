@@ -1,4 +1,5 @@
 import random
+import colorama
 
 def readFile(file_path: str):
     with open(file_path, 'r') as file:
@@ -35,15 +36,16 @@ def solve(answer: str, guess: str):
             guessTuple.append((guess[i], 0))
     return guess == answer, guessTuple
 
-def convertList(resList: list):
-    result = []
-    for i in resList:
-        result.append(intToString(i))
-    return result
+def colourLetter(tupleIn):
+    colorama.init(autoreset=True)
+    colorDef = [(0, 'red'), (1, 'yellow'), (2, 'green')]
+    colorBg = {'red': colorama.Fore.RED, 'yellow': colorama.Fore.YELLOW, 'green': colorama.Fore.GREEN}
 
-def intToString(num: int):
-    refDic = {0: "O", 1: "Y", 2: "X"}
-    return(refDic[num])
+    for letter, color_index in tupleIn:
+        color_name = next(color_name for index, color_name in colorDef if index == color_index)
+        color_code = colorBg.get(color_name, colorama.Fore.RESET)
+        print(f"{color_code}{letter}", end=' ')
+    print()
 
 def updateBank(tupleList: list, bank: dict):
     for letterTup in tupleList:
@@ -51,5 +53,6 @@ def updateBank(tupleList: list, bank: dict):
             bank[letterTup[0]] = letterTup[1]
         elif letterTup[1] > bank[letterTup[0]]:
             bank[letterTup[0]] = letterTup[1]
-    return bank
+    
+    return dict(sorted(bank.items()))
     
