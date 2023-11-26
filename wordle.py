@@ -1,12 +1,12 @@
 import random
 
-def readFile(file_path):
+def readFile(file_path: str):
     with open(file_path, 'r') as file:
         text = file.read()
         lines = text.split()
     return lines
 
-def countLetters(word):
+def countLetters(word: str):
     wordDict = {}
     for letter in word:
         if letter in wordDict:
@@ -21,18 +21,35 @@ def getWord():
     chosenWord = random.choice(wordbank).lower()
     return chosenWord, wordbank
 
-def solve(answer, guess):
+def solve(answer: str, guess: str):
     chosenDict = countLetters(answer)
-    match = []
-    guessList = []
+    guessTuple = []
     for i in range(len(answer)):
-        guessList.append(guess[i])
         if guess[i] in chosenDict and chosenDict[guess[i]] != 0:
             if(guess[i]==answer[i]):
-                match.append("X")
+                guessTuple.append((guess[i], 2))
             else:
-                match.append("Y")
+                guessTuple.append((guess[i], 1))
             chosenDict[guess[i]] -= 1
         else:
-            match.append("O")
-    return guess == answer, guessList, match
+            guessTuple.append((guess[i], 0))
+    return guess == answer, guessTuple
+
+def convertList(resList: list):
+    result = []
+    for i in resList:
+        result.append(intToString(i))
+    return result
+
+def intToString(num: int):
+    refDic = {0: "O", 1: "Y", 2: "X"}
+    return(refDic[num])
+
+def updateBank(tupleList: list, bank: dict):
+    for letterTup in tupleList:
+        if not(letterTup[0] in bank):
+            bank[letterTup[0]] = letterTup[1]
+        elif letterTup[1] > bank[letterTup[0]]:
+            bank[letterTup[0]] = letterTup[1]
+    return bank
+    
