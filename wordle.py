@@ -1,5 +1,22 @@
+# OBSELETE
+
 import random
 import colorama
+
+def checkInt(x: str):
+    try:
+        y = int(x)
+    except ValueError:
+        print("Invalid Value, Try Again")
+        return False, x
+    else:
+        return True, y
+
+def readFile(file_path: str):
+    with open(file_path, 'r') as file:
+        text = file.read()
+        lines = text.split()
+    return lines
 
 def readFile(file_path: str):
     with open(file_path, 'r') as file:
@@ -16,8 +33,9 @@ def countLetters(word: str):
             wordDict[letter] = 1
     return wordDict
 
-def getWord():
-    wordLen = random.randint(4,7)
+
+def getWord(chars: int):
+    wordLen = chars
     wordbank = readFile(f'words/{wordLen}letter.txt')
     chosenWord = random.choice(wordbank).lower()
     return chosenWord, wordbank
