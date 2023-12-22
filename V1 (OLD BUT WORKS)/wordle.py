@@ -58,7 +58,6 @@ def colourLetter(tupleIn):
     colorama.init(autoreset=True)
     colorDef = [(0, 'red'), (1, 'yellow'), (2, 'green')]
     colorBg = {'red': colorama.Fore.RED, 'yellow': colorama.Fore.YELLOW, 'green': colorama.Fore.GREEN}
-
     for letter, color_index in tupleIn:
         color_name = next(color_name for index, color_name in colorDef if index == color_index)
         color_code = colorBg.get(color_name, colorama.Fore.RESET)

@@ -18,7 +18,7 @@ while not(result) and count <= len(secret):
             result, guessRes = game.solve(secret, guess)
             letterBank = game.updateBank(guessRes, letterBank)
             print(f'\nLetters used:\n{letterBank}')
-            game.colourLetter(guessRes)
+            print(game.colourLetter(guessRes))
         else:
             print("Word not in wordbank")
     else:
