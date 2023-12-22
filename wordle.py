@@ -36,7 +36,7 @@ def countLetters(word: str):
 
 def getWord(chars: int):
     wordLen = chars
-    wordbank = readFile(f'words/{wordLen}letter.txt')
+    wordbank = readFile(f'words/{wordLen}letters.txt')
     chosenWord = random.choice(wordbank).lower()
     return chosenWord, wordbank
 
