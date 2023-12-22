@@ -12,7 +12,7 @@ if __name__ == "__main__":
     game = wordle.Wordle(reqLen)
     count = 0
     while count in range(0, reqLen+1):
-        print(count)
+        print(f'Guesses remaining: {reqLen+1-count}')
         guessWord = input(f'Enter a {reqLen} length word: ')
         match validateWord(guessWord):
             case 0:
