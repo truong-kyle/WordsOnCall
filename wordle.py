@@ -1,16 +1,16 @@
-import setup, random
+import config, random
 class Wordle:
 
     def __init__(self, num: int) -> None:
         self.wordLen = num
-        self.wordbank = setup.readFile(f'words/{self.wordLen}letters.txt')
+        self.wordbank = config.readFile(f'words/{self.wordLen}letters.txt')
         self.chosenWord = random.choice(self.wordbank).lower()
         self.letterBank = {}
         pass
 
     def solve(self, guess: str):
         guessTuple = []
-        wordDict = setup.countLetters(self.chosenWord)
+        wordDict = config.countLetters(self.chosenWord)
         for i in range(self.wordLen):
             if guess[i] in wordDict and wordDict[guess[i]] != 0:
                 if(guess[i]==self.chosenWord[i]):

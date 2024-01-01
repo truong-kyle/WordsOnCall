@@ -17,7 +17,7 @@ if __name__ == "__main__":
         match validateWord(guessWord):
             case 0:
                 count += 1
-                print(f'{game.solve(guessWord)}\n{game.letterBank}')
+                print(f'{game.solve(guessWord)}\nLetters used: {game.letterBank.keys()}')
                 if guessWord == game.chosenWord: break
             case 1: print('Word not in wordbank')
             case 2: print(f'Word must be a {reqLen} long word')            
