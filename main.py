@@ -69,4 +69,19 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    getLen = input("Word Length: ")
+    reqLen = int(getLen) if getLen.isnumeric() and int(getLen) >= 4 and int(getLen) <= 7 else random.randint(4, 7)
+    game = wordle.Wordle(reqLen)
+    count = 0
+    while count in range(0, reqLen+1):
+        print(f'Guesses remaining: {reqLen+1-count}')
+        guessWord = input(f'Enter a {reqLen} length word: ')
+        match validateWord(guessWord):
+            case 0:
+                count += 1
+                print(f'{game.solve(guessWord)}\nLetters used: {game.letterBank.keys()}')
+                if guessWord == game.chosenWord: break
+            case 1: print('Word not in wordbank')
+            case 2: print(f'Word must be a {reqLen} long word')            
+    print(game.chosenWord)
+    input("")
