@@ -84,4 +84,8 @@ if __name__ == "__main__":
             case 1: print('Word not in wordbank')
             case 2: print(f'Word must be a {reqLen} long word')            
     print(game.chosenWord)
+<<<<<<< HEAD
     input("")
+=======
+    input("")
+>>>>>>> parent of 337b340 (testing lazygit)
