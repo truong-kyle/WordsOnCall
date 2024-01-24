@@ -1,12 +1,12 @@
 """
-@kyle explain what this does
+Loads the words from the .txt file into memory
 """
 # this is what i meant by collections package
 from collections import Counter
 
 def get_words_from_file(file_path):
     """
-    @kyle explain what this does
+    Opens the file from the requested path and splits by line.
     """
     with open(file_path, 'r', encoding="utf-8") as file:
         return file.read().split()
