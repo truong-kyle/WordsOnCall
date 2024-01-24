@@ -23,4 +23,3 @@ if __name__ == "__main__":
             case 2: print(f'Word must be a {reqLen} long word')            
     print(game.chosenWord)
     input("")
-    # test
