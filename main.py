@@ -66,3 +66,6 @@ def main():
         result = game.solve(guess)
 
         print(result)
+
+if __name__ == "main":
+    main()
